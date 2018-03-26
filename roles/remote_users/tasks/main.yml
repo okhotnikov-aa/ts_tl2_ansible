@@ -1,0 +1,11 @@
+---
+
+- name: Add users
+  user: name="{{ item.user }}"
+  with_items:
+    - "{{ ssh_admins|default([]) }}"
+
+- name: Add ssh authorized keys
+  authorized_key: user={{ item.user }} key="{{ lookup('file', '/home/' + item.user + '/.ssh/' + item.user + '.pub') }}" manage_dir=yes
+  with_items:
+    - "{{ ssh_admins|default([]) }}"

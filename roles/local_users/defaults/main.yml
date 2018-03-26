@@ -1,0 +1,3 @@
+ssh_admins:
+  - { user: "aaa", password: "1234567890" }
+  - { user: "ikrylov", password: "qwertyuiop" }

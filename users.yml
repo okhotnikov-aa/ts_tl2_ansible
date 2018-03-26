@@ -1,0 +1,14 @@
+---
+
+- name: create local users with ssh keys
+  hosts: localhost
+  become: true
+  roles:
+    - local_users
+
+- name: distribute local users to remote hosts
+  hosts: tele2
+  remote_user: appuser
+  become: true
+  roles:
+      - remote_users

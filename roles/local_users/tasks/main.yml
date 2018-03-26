@@ -1,0 +1,6 @@
+---
+
+- name: Add users
+  user: name="{{ item.user }}" generate_ssh_key=yes ssh_key_file=.ssh/{{ item.user }} password="{{ item.password | password_hash('sha512') }}"
+  with_items:
+    - "{{ ssh_admins|default([]) }}"
