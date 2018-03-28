@@ -1,0 +1,7 @@
+---
+
+- name: create local root ssh keys
+  hosts: localhost
+  become: true
+  roles:
+    - local_root

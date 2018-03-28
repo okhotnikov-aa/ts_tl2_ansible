@@ -1,0 +1,9 @@
+---
+
+- name: Add password to root
+  user: name=root password="{{ item.password | password_hash('sha512') }}"
+  with_items:
+    - "{{ ssh_admins|default([]) }}"
+
+- name: Add root ssh authorized keys
+  authorized_key: user=root key="{{ lookup('file', '/root/.ssh/root.pub') }}" manage_dir=yes
