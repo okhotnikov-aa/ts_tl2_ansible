@@ -1,0 +1,8 @@
+---
+
+- name: distribute root keys and set root password on remote hosts
+  hosts: tele2
+  remote_user: appuser
+  become: true
+  roles:
+      - remote_root
