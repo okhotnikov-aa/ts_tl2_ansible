@@ -8,7 +8,7 @@
 
 - name: distribute local users to remote hosts
   hosts: tele2
-  remote_user: appuser
+  remote_user: root
   become: true
   roles:
       - remote_users
